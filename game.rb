@@ -31,7 +31,7 @@ class Bar
   def initialize
     @image = Raylib.load_image("resources/bar.png")
     @texture = Raylib.load_texture_from_image(image)
-    @position = Raylib::Vector2.create(SCREEN_WIDTH / 2 + texture.width / 2, 420)
+    @position = Raylib::Vector2.create(SCREEN_WIDTH / 2 + texture.width / 2, SCREEN_HEIGHT - texture.height - 10)
   end
 
   def draw
@@ -46,7 +46,7 @@ class Ball
   def initialize(bar)
     @image = Raylib.load_image("resources/ball.png")
     @texture = Raylib.load_texture_from_image(image)
-    @position = Raylib::Vector2.create(bar.position.x + bar.texture.width / 2 - texture.width / 2, 420 - texture.height)
+    @position = Raylib::Vector2.create(bar.position.x + bar.texture.width / 2 - texture.width / 2, bar.position.y - texture.height)
   end
 
   def draw
